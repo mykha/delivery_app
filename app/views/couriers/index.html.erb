@@ -3,9 +3,7 @@
 <ul>
   <%@couriers.each do |courier| %>
     <li>
-      <%= link_to courier.name, courier %> <%= link_to "Edit", edit_courier_path(courier) %>   <%= link_to "Destroy", courier_path(courier),
-                                                                                                               method: :delete,
-                                                                                                               data: { confirm: "Are you sure, you want to delete courier #{courier.name} ?" } %>
+      <%= link_to courier.name, courier %> | <%= link_to "Edit", edit_courier_path(courier) %>
     </li>
   <% end %>
 </ul>

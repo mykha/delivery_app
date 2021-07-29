@@ -1,8 +1,9 @@
-<h1><%= @courier.name %></h1>
+<h2>Courier account</h2>
+<p><%= link_to "Edit", edit_courier_path(@courier) %> | <%= link_to "Home", root_path %></p>
+<p>Name:<%= @courier.name %> </p>
+<p>E-mail:<%= @courier.email %></p>
 
-<p><%= @courier.email %></p>
-
-<h2>Packages</h2>
+<h2><%= @courier.name %> packages</h2>
 <table>
   <thead>
   <tr>
@@ -15,7 +16,7 @@
   </tbody>
 </table>
 
-<h2>Add a package:</h2>
+<h2>Add a NEW package to courier <%= @courier.name %>:</h2>
 <%= form_with model: [ @courier, @courier.packages.build ] do |form| %>
   <p>
     <%= form.label :tracking_number %><br>
@@ -23,7 +24,7 @@
   </p>
   <p>
     <%= form.label :delivery_status %><br>
-    <%= form.text_area :delivery_status %>
+    <%= form.check_box :delivery_status %>
   </p>
   <p>
     <%= form.submit %>
