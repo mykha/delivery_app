@@ -15,7 +15,8 @@ class CouriersController < ApplicationController
     @courier = Courier.new(courier_params)
 
     if @courier.save
-      redirect_to @courier
+      #redirect_to @courier
+      redirect_to root_path
     else
       render :new
     end
@@ -28,11 +29,19 @@ class CouriersController < ApplicationController
   def update
     @courier = Courier.find(params[:id])
 
-    if @courier.update(courier_params_params)
-      redirect_to @courier
+    if @courier.update(courier_params)
+      #redirect_to @courier
+      redirect_to root_path
     else
       render :edit
     end
+  end
+
+  def destroy
+    @courier = Courier.find(params[:id])
+    @courier.destroy
+
+    redirect_to root_path
   end
 
   private

@@ -2,6 +2,30 @@
 
 <p><%= @courier.email %></p>
 
-<ul>
-  <li><%= link_to "Edit", edit_courier_path(@courier) %></li>
-</ul>
+<h2>Packages</h2>
+<table>
+  <thead>
+  <tr>
+    <th>Tracking number</th>
+    <th>Delivery status</th>
+  </tr>
+  </thead>
+  <tbody>
+  <%= render @courier.packages %>
+  </tbody>
+</table>
+
+<h2>Add a package:</h2>
+<%= form_with model: [ @courier, @courier.packages.build ] do |form| %>
+  <p>
+    <%= form.label :tracking_number %><br>
+    <%= form.text_field :tracking_number %>
+  </p>
+  <p>
+    <%= form.label :delivery_status %><br>
+    <%= form.text_area :delivery_status %>
+  </p>
+  <p>
+    <%= form.submit %>
+  </p>
+<% end %>
