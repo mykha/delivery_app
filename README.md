@@ -1,4 +1,4 @@
-#Test task for Yalantis Ruby School
+# Test task for Yalantis Ruby School
 
 ## Installation
 
@@ -12,6 +12,6 @@ yarn add @rails/webpacker
 
 bundle update webpacker
 
-##Run
+## Run
 
 rails s
